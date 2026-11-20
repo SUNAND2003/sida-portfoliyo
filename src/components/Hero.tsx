@@ -20,7 +20,7 @@ const marqueeItems = [
 
 const stats = [
   { value: 1, suffix: "+", label: "Year Experience" },
-  { value: 40, suffix: "+", label: "Projects Delivered" },
+  { value: 100, suffix: "+", label: "Projects Delivered" },
   { value: 5, suffix: "", label: "Design Categories" },
 ];
 
@@ -64,7 +64,7 @@ export function Hero() {
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-gold opacity-75" />
                   <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-gold" />
                 </span>
-                Graphic Designer · Kerala
+                Graphic Designer · Calicut, Kerala
               </span>
             </ScrollReveal>
 
@@ -130,12 +130,15 @@ export function Hero() {
 
           {/* ---------------- Portrait ---------------- */}
           <div className="md:col-span-5">
-            <div className="relative mx-auto h-[26rem] w-full max-w-[19rem] sm:h-[29rem] sm:max-w-[21rem] md:max-w-[18rem] lg:h-[33rem] lg:max-w-[22rem]">
+            <div className="relative mx-auto -translate-y-10 h-[26rem] w-full max-w-[19rem] sm:h-[29rem] sm:-translate-y-12 sm:max-w-[21rem] md:max-w-[18rem] lg:h-[33rem] lg:-translate-y-14 lg:max-w-[22rem]">
               <div
                 aria-hidden
                 className="absolute top-1/2 left-1/2 h-[92%] w-[92%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-gold/25"
               />
-              <div aria-hidden className="absolute -inset-6 rounded-[3rem] bg-gold/10 blur-3xl" />
+              <div
+                aria-hidden
+                className="absolute -inset-6 -translate-y-10 rounded-[3rem] bg-gold/10 blur-3xl"
+              />
 
               {/* Your photo — the focal point of the hero */}
               <Parallax speed={-22} className="absolute inset-0 z-10">
@@ -153,7 +156,7 @@ export function Hero() {
                       </p>
                       <p className="font-display text-3xl uppercase">Sadeeda</p>
                       <p className="mt-1 text-xs text-muted-foreground">
-                        Graphic Designer · Kerala
+                        Graphic Designer · Calicut, Kerala
                       </p>
                     </div>
                   </div>
@@ -192,7 +195,7 @@ export function Hero() {
                       className="animate-float rounded-2xl border border-border bg-background/90 px-4 py-3 text-center shadow-xl shadow-black/40 backdrop-blur"
                       style={{ animationDuration: "8.5s", animationDelay: "-2.5s" }}
                     >
-                      <p className="font-display text-2xl text-gold">40+</p>
+                      <p className="font-display text-2xl text-gold">100+</p>
                       <p className="text-[9px] tracking-widest text-muted-foreground uppercase">
                         Projects done
                       </p>

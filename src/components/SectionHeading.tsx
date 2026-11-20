@@ -22,16 +22,25 @@ export function SectionHeading({
   return (
     <ScrollReveal delay={delay} className={centered ? "text-center" : ""}>
       <div className={`flex items-center gap-4 ${centered ? "justify-center" : ""}`}>
-        <span className="text-xs font-medium uppercase tracking-[0.35em] text-gold">{kicker}</span>
-        <span aria-hidden className="h-px w-16 bg-gradient-to-r from-gold/60 to-transparent" />
+        <span className="shrink-0 text-xs font-medium uppercase tracking-[0.35em] text-gold">
+          {kicker}
+        </span>
+        <span
+          aria-hidden
+          className={
+            centered
+              ? "h-px w-16 bg-gradient-to-r from-gold/60 to-transparent"
+              : "h-px flex-1 bg-gradient-to-r from-gold/50 via-gold/20 to-transparent"
+          }
+        />
       </div>
 
       {centered ? (
         <h2 className="mt-4 font-display text-5xl uppercase leading-[0.95] md:text-6xl">{title}</h2>
       ) : (
-        <div className="mt-4 flex flex-wrap items-end justify-between gap-6">
+        <div className="mt-4 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between lg:gap-8">
           <h2 className="font-display text-5xl uppercase leading-[0.95] md:text-7xl">{title}</h2>
-          {action}
+          {action && <div className="w-full lg:w-auto">{action}</div>}
         </div>
       )}
     </ScrollReveal>

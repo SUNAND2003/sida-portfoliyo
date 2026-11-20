@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { WHATSAPP_URL } from "@/lib/contact";
+import GooeyNav from "./GooeyNav";
 import { ScrollProgress } from "./ScrollProgress";
 
 const links = [
+  { href: "#top", label: "Home" },
   { href: "#about", label: "About" },
   { href: "#services", label: "Services" },
   { href: "#work", label: "Work" },
@@ -14,12 +16,38 @@ const links = [
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Keep the gooey pill on the section currently in view.
+  useEffect(() => {
+    const onScroll = () => {
+      const marker = window.scrollY + 160;
+      let next = 0;
+
+      links.forEach((link, index) => {
+        const section = document.getElementById(link.href.slice(1));
+        if (section && section.getBoundingClientRect().top + window.scrollY <= marker) {
+          next = index;
+        }
+      });
+
+      setActiveIndex((prev) => (prev === next ? prev : next));
+    };
+
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
   }, []);
 
   useEffect(() => {
@@ -41,29 +69,35 @@ export function Header() {
             : "border-transparent bg-background/40 backdrop-blur-sm"
         }`}
       >
-        <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4">
+        <nav className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4">
           <a href="#top" className="font-display text-2xl tracking-wide">
-            SADEEDA<span className="text-gold">.</span>
+            SADEEDA
           </a>
 
-          <div className="hidden gap-8 text-sm text-muted-foreground md:flex">
-            {links.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="relative uppercase tracking-widest transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-px after:w-0 after:bg-gold after:transition-all after:duration-300 hover:text-foreground hover:after:w-full"
-              >
-                {link.label}
-              </a>
-            ))}
-          </div>
+          <GooeyNav
+            items={links}
+            activeIndex={activeIndex}
+            onChange={(index) => setActiveIndex(index)}
+            theme="dark"
+            color="#e3bd7b"
+            size="md"
+            frame={true}
+            particleCount={15}
+            spread={56}
+            animationTime={600}
+            timeVariance={300}
+            gooeyness={0.5}
+            wobble={0.5}
+            hoverEffect={true}
+            className="hidden md:inline-flex"
+          />
 
           <div className="flex items-center gap-3">
             <a
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden rounded-full bg-primary px-4 py-2 text-xs font-medium uppercase tracking-wider text-primary-foreground transition hover:opacity-90 sm:inline-block"
+              className="hidden rounded-full bg-primary px-4 py-2 text-xs font-medium tracking-wider text-primary-foreground uppercase transition hover:opacity-90 lg:inline-block"
             >
               Get in touch
             </a>
@@ -87,7 +121,7 @@ export function Header() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMenuOpen(false)}
-                  className="border-b border-border/60 py-3.5 text-sm uppercase tracking-[0.2em] text-muted-foreground transition hover:text-gold"
+                  className="border-b border-border/60 py-3.5 text-sm tracking-[0.2em] text-muted-foreground uppercase transition hover:text-gold"
                 >
                   {link.label}
                 </a>
@@ -97,7 +131,7 @@ export function Header() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMenuOpen(false)}
-                className="mt-4 mb-3 rounded-full bg-primary px-4 py-3 text-center text-xs font-medium uppercase tracking-wider text-primary-foreground transition hover:opacity-90"
+                className="mt-4 mb-3 rounded-full bg-primary px-4 py-3 text-center text-xs font-medium tracking-wider text-primary-foreground uppercase transition hover:opacity-90"
               >
                 Get in touch
               </a>

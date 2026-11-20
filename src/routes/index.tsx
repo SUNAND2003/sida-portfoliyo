@@ -80,7 +80,11 @@ const tools = [
 const aboutCards = [
   {
     title: "Experience",
-    items: ["Junior Graphic Designer — Escent", "Graphic Designer — Monochrome FX"],
+    items: [
+      "Graphic Designer — Hexa Branding",
+      "Junior Graphic Designer — Escent",
+      "Graphic Designer — Monochrome FX",
+    ],
   },
   { title: "Education", items: ["Diploma in Graphic Design", "Skillopt, Nilambur"] },
   { title: "Software", items: ["Photoshop", "Illustrator", "InDesign", "Canva"] },
@@ -117,9 +121,9 @@ function Index() {
             <ScrollReveal className="md:col-span-2">
               <div className="panel flex h-full flex-col justify-between gap-8 p-8 md:p-10">
                 <p className="text-lg leading-relaxed text-muted-foreground md:text-xl">
-                  I&apos;m a junior graphic designer based in Kerala, working across branding,
-                  social media, packaging and print. I like ideas that are simple, warm and easy to
-                  remember — and I keep polishing until the details are right.
+                  I&apos;m a junior graphic designer based in Calicut, Kerala, working across
+                  branding, social media, packaging and print. I like ideas that are simple, warm
+                  and easy to remember — and I keep polishing until the details are right.
                 </p>
                 <div className="flex items-center gap-3 text-xs tracking-[0.25em] text-gold uppercase">
                   <span className="relative flex h-1.5 w-1.5">
@@ -137,13 +141,13 @@ function Index() {
                 <ul className="mt-5 space-y-4">
                   <li>
                     <p className="text-xs tracking-wider text-muted-foreground uppercase">Role</p>
-                    <p className="mt-1">Junior Graphic Designer — Escent</p>
+                    <p className="mt-1">Graphic Designer — Hexa Branding</p>
                   </li>
                   <li>
                     <p className="text-xs tracking-wider text-muted-foreground uppercase">
                       Based in
                     </p>
-                    <p className="mt-1">Kerala, India</p>
+                    <p className="mt-1">Calicut, Kerala, India</p>
                   </li>
                   <li>
                     <p className="text-xs tracking-wider text-muted-foreground uppercase">
@@ -222,7 +226,7 @@ function Index() {
             }
             delay={50}
             action={
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2 lg:justify-end">
                 {[{ key: "all", title: "All" }, ...categories].map((c) => (
                   <button
                     key={c.key}
@@ -421,7 +425,7 @@ function Index() {
 
       <footer className="border-t border-border py-10">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-5 text-sm text-muted-foreground sm:flex-row">
-          <p>© 2026 Sadeeda · Graphic Designer, Kerala</p>
+          <p>© 2026 Sadeeda · Graphic Designer, Calicut, Kerala</p>
           <a
             href="#top"
             className="group inline-flex items-center gap-2 text-xs tracking-widest uppercase transition hover:text-gold"
