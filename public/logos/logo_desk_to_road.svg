@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <rect width="500" height="500" rx="36" fill="#1C3F3A"/>
+  <g transform="translate(60, 40)">
+    <!-- Hexagon Outer Border -->
+    <polygon points="190,20 360,115 360,305 190,400 20,305 20,115" fill="#16332E" stroke="#52A195" stroke-width="5"/>
+    <polygon points="190,32 346,120 346,300 190,388 34,300 34,120" fill="none" stroke="#84C7BD" stroke-width="2" stroke-dasharray="6,4"/>
+    <!-- Mountains -->
+    <polygon points="90,210 160,110 230,210" fill="#2A5C54"/>
+    <polygon points="160,110 185,145 160,165 140,140" fill="#E6F5F2"/>
+    <polygon points="180,220 250,90 320,220" fill="#3D7D72"/>
+    <polygon points="250,90 275,130 250,150 230,125" fill="#FFFFFF"/>
+    <!-- Highway Road -->
+    <path d="M 140,310 L 175,210 L 205,210 L 240,310 Z" fill="#202A28"/>
+    <path d="M 190,210 L 190,310" stroke="#E6C875" stroke-width="3" stroke-dasharray="8,6"/>
+    <!-- Banner for DESK TO ROAD -->
+    <rect x="40" y="240" width="300" height="46" rx="6" fill="#132B27" stroke="#E6C875" stroke-width="2"/>
+    <text x="190" y="272" font-family="'Anton', sans-serif" font-size="28" fill="#FFFFFF" text-anchor="middle" letter-spacing="2">DESK TO ROAD</text>
+    <!-- Tagline -->
+    <text x="190" y="302" font-family="'DM Sans', sans-serif" font-style="italic" font-size="11" fill="#E6C875" text-anchor="middle">Where The Desk Ends The Ride Begins</text>
+    <!-- Badges / License plate codes -->
+    <text x="190" y="338" font-family="monospace" font-size="10" fill="#84C7BD" text-anchor="middle" letter-spacing="3">KL 11 · KL 06 · KA 03</text>
+  </g>
+</svg>
